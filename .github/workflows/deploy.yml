@@ -8,13 +8,13 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-latest
-
+    
     steps:
     - name: Checkout code
       uses: actions/checkout@v2
 
-    - name: Debug: List project files
-      run: ls -al
+    - name: Debug file structure
+      run: ls -al # List all files to ensure package.json is present
 
     - name: Set up Node.js
       uses: actions/setup-node@v2
