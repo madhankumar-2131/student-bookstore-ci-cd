@@ -3,7 +3,7 @@ name: Deploy to Netlify
 on:
   push:
     branches:
-      - main  # Trigger deployment when code is pushed to the main branch
+      - main
 
 jobs:
   deploy:
@@ -12,9 +12,11 @@ jobs:
     steps:
     - name: Checkout code
       uses: actions/checkout@v2
+      with:
+        fetch-depth: 0
 
     - name: Debug file structure
-      run: ls -al # List all files to ensure package.json is present
+      run: ls -al
 
     - name: Set up Node.js
       uses: actions/setup-node@v2
@@ -24,12 +26,10 @@ jobs:
     - name: Install dependencies
       run: |
         npm install
-        # If you use Yarn, replace with: yarn install
 
     - name: Build the project (if needed)
       run: |
         npm run build
-        # Replace with your build command if needed
 
     - name: Deploy to Netlify
       env:
