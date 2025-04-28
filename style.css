@@ -1,0 +1,253 @@
+/* General styles */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #9ff388;
+    color: #333;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.container {
+    width: 80%;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Header styles */
+h1,
+h2 {
+    text-align: center;
+    color: #333;
+}
+
+/* Category section styles */
+.category {
+    margin-bottom: 30px;
+}
+
+.category ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.category li {
+    margin: 10px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #fff;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.category li:hover {
+    transform: translateY(-5px);
+}
+
+.category button {
+    background-color: #28a745;
+    color: #fff;
+    padding: 8px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.category button:hover {
+    background-color: #218838;
+}
+
+.category img {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 10px;
+}
+
+/* Shopping cart styles */
+#cart-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+#cart-list li {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #fff;
+    padding: 10px 15px;
+    margin: 10px 0;
+    border-radius: 5px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+/* Smooth delete animation */
+#cart-list li.delete-animation {
+    animation: fadeOut 0.5s forwards;
+}
+
+#cart-list li img {
+    width: 50px;
+    height: 75px;
+    margin-right: 15px;
+}
+
+#cart-list li span {
+    flex-grow: 1;
+    font-size: 14px;
+}
+
+button {
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #c82333;
+}
+
+/* Google Pay button style */
+button.google-pay {
+    background-color: #4285F4;
+    color: white;
+    padding: 12px 20px;
+    border-radius: 8px;
+    font-size: 16px;
+    width: 100%;
+    margin-top: 20px;
+    cursor: pointer;
+    display: inline-block;
+}
+
+button.google-pay:hover {
+    background-color: #357ae8;
+}
+
+/* Popup styles */
+.popup {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    justify-content: center;
+    align-items: center;
+}
+
+.popup-content {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 8px;
+    text-align: center;
+    max-width: 400px;
+    width: 90%;
+}
+
+.popup-content h3 {
+    font-size: 24px;
+    color: #333;
+}
+
+.popup-content img {
+    width: 80%;
+    margin-bottom: 20px;
+}
+
+.popup-content button {
+    background-color: #28a745;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.popup-content button:hover {
+    background-color: #218838;
+}
+
+/* Animation for fading out */
+@keyframes fadeOut {
+    0% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+}
+
+/* Mobile responsiveness */
+@media screen and (max-width: 768px) {
+    .container {
+        width: 90%;
+    }
+
+    .category li {
+        flex-direction: column;
+        text-align: center;
+        margin: 15px 0;
+    }
+
+    .category button {
+        width: 100%;
+        margin-top: 10px;
+    }
+
+    #cart-list li {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    #cart-list li img {
+        margin-bottom: 10px;
+    }
+
+    button.google-pay {
+        width: 100%;
+    }
+
+    .popup-content {
+        width: 90%;
+        padding: 20px;
+    }
+
+    .popup-content h3 {
+        font-size: 20px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    h1 {
+        font-size: 24px;
+    }
+
+    h2 {
+        font-size: 20px;
+    }
+
+    .category li {
+        padding: 10px;
+    }
+
+    .category button {
+        padding: 10px;
+    }
+
+    .popup-content h3 {
+        font-size: 18px;
+    }
+}
