@@ -29,4 +29,3 @@ jobs:
     - name: Build the project
       run: |
         npm run build  # Adjust based on your project setup.
-
