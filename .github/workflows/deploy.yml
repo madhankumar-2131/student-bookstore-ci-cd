@@ -1,22 +1,17 @@
-name: Deploy to Netlify
+name: CI/CD Pipeline
 
 on:
   push:
     branches:
-      - main
+      - main   # Trigger CI/CD on pushes to the main branch
 
 jobs:
-  deploy:
+  build-and-test:
     runs-on: ubuntu-latest
-    
+
     steps:
     - name: Checkout code
       uses: actions/checkout@v2
-      with:
-        fetch-depth: 0
-
-    - name: Debug file structure
-      run: ls -al
 
     - name: Set up Node.js
       uses: actions/setup-node@v2
@@ -27,14 +22,11 @@ jobs:
       run: |
         npm install
 
-    - name: Build the project (if needed)
+    - name: Run tests
       run: |
-        npm run build
+        npm test  # Make sure you have tests in your project. Adjust the command as necessary.
 
-    - name: Deploy to Netlify
-      env:
-        NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
-        NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
+    - name: Build the project
       run: |
-        curl -sL https://github.com/netlify/cli/releases/download/v7.4.1/netlify-cli-linux-x64.tar.gz | tar xz
-        ./netlify deploy --prod --dir=./public --auth $NETLIFY_AUTH_TOKEN --site $NETLIFY_SITE_ID
+        npm run build  # Adjust based on your project setup.
+
